@@ -19,4 +19,12 @@ steps:
 - script: dotnet test FlyingDutchmanAirlines
   displayName: 'dotent test FlyingDutchmanAirlines'
 
-- script: dotnet publish FlyingDutchmanAirlines -o /publish/
+- script: dotnet publish FlyingDutchmanAirlines -o '$(Build.BinariesDirectory)'
+  displayName: 'dotnet publish'
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
