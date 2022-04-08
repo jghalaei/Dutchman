@@ -20,7 +20,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: 'FlyingDutchmanAirlines\*.csproj'
+    projects: 'FlyingDutchmanAirlines\*.sln'
     testRunTitle: 'test app'
 
 - script: dotnet publish FlyingDutchmanAirlines -o '$(Build.BinariesDirectory)'
