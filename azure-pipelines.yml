@@ -16,8 +16,12 @@ steps:
 - script: dotnet build FlyingDutchmanAirlines --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-- script: dotnet test FlyingDutchmanAirlines
-  displayName: 'dotent test FlyingDutchmanAirlines'
+  
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: 'FlyingDutchmanAirlines\*.csproj'
+    testRunTitle: 'test app'
 
 - script: dotnet publish FlyingDutchmanAirlines -o '$(Build.BinariesDirectory)'
   displayName: 'dotnet publish'
