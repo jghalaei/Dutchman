@@ -13,10 +13,10 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build FlyingDutchmanAirelines --configuration $(buildConfiguration)
+- script: dotnet build FlyingDutchmanAirlines --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-- script: dotnet test
-  displayName: 'dotent test FlyingDutchmanAirelines'
+- script: dotnet test FlyingDutchmanAirlines
+  displayName: 'dotent test FlyingDutchmanAirlines'
 
-- script: dotnet publish FlyingDutchmanAirelines -o /publish/
+- script: dotnet publish FlyingDutchmanAirlines -o /publish/
